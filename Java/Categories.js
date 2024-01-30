@@ -46,7 +46,7 @@ function show(x){
         var container = "" ;
         for(let i = 0 ;  i < x.meals.length ; i++){
             container+=` <div class="this col-sm-12  col-xl-6  col-xxl-3  text-white position-relative overflow-hidden text-center mb-2 ">
-            <img src=${x.meals[i].strMealThumb} class=" rounded rounded-2 d-block " alt="" width="100%">
+            <img src=${x.meals[i].strMealThumb} class=" rounded rounded-2 d-block " alt="${x.meals[i].strMeal}" width="100%">
             <div  class="con  d-flex flex-row align-items-center justify-content-cenetr  position-absolute pb-4  mx-2 rounded rounded-2 bg-body-tertiary  " style="--bs-bg-opacity: .8;">
                 <p class ="text-black fs-4 fw-bold">${x.meals[i].strMeal}</p>
                </div>
@@ -91,7 +91,8 @@ function show(x){
         }
       
     }
-    let Tags = "" ;
+    let Tags = `<p class ="text-danger rounded rounded-2 bg-warning-subtle px-3 py-2">Sorry Not Found</p>` ;
+
     if(x.meals[0].strTags != null){
         Tags = `<p class ="text-white rounded rounded-2 bg-warning-subtle px-3 py-2">${x.meals[0].strTags}</p>` ; ;
         let tex = x.meals[0].strTags ;
@@ -128,7 +129,7 @@ function show(x){
         container =`
         
         <div class=" col-sm-12    col-xxl-4 d-flex flex-column justify-content-start align-items-start ">
-        <img src=${x.meals[0].strMealThumb} class=" rounded rounded-2 d-block " alt="" width="100%">
+        <img src=${x.meals[0].strMealThumb} class=" rounded rounded-2 d-block " alt="${x.meals[0].strMeal}" width="100%">
             <p class ="text-white fs-4 fw-bold">${x.meals[0].strMeal}</p>
           </div>
 

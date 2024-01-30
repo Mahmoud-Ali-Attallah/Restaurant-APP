@@ -23,7 +23,7 @@ if( inp1.value !="" ){
 async function getData(x){
             let Response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?f=${x}`) ;
             let Data = await Response.json()  ;
-            await console.log(Data)
+            // await console.log(Data)
         await show(Data) ; 
         
 
@@ -36,7 +36,7 @@ async function getdata(x){
 
     }
     else{
-        await console.log(Data)
+        // await console.log(Data)
         await show(Data) ; 
     }
 
@@ -53,7 +53,7 @@ for(let i = 0 ;  (i < x.meals.length && i < 25); i++){
     <div  class="con  d-flex flex-column align-items-center justify-content-center text.center position-absolute pb-4  mx-2 rounded rounded-2 bg-body-tertiary  " style="--bs-bg-opacity: .8;">
      <p class ="text-black fs-2 fw-bold">${x.meals[i].strMeal}</p>
     </div>
-    <img src=${x.meals[i].strMealThumb} class=" rounded rounded-2 d-block " alt="" width="100%">
+    <img src=${x.meals[i].strMealThumb} class=" rounded rounded-2 d-block " alt="${x.meals[i].strMeal}" width="100%">
 
       </div>`
 }
@@ -66,7 +66,7 @@ function clicDetails(){
 
     let e = document.querySelectorAll(".this")
     let z = document.querySelectorAll(".this p")
-    console.log(z)
+    // console.log(z)
     for(let i =0 ; i < e.length ; i++){
         e[i].addEventListener("click" , function(){
             inp1.value= ""
@@ -87,7 +87,7 @@ function showDea(x){
     for(let i = 1 ; i<= 20; i++){
         var y = "strIngredient"+i
         var z = "strMeasure"+i
-        console.log(y) ;
+        // console.log(y) ;
         if(x.meals[0][y] != "" && x.meals[0][y] != null ){
             Recipes+=`
             <div class="d-inline-block text-Black p-2 m-2 bg-info-subtle rounded rounded-2 ">
@@ -97,9 +97,10 @@ function showDea(x){
         }
       
     }
-    let Tags = "" ;
+    let Tags = `<p class ="text-danger rounded rounded-2 bg-warning-subtle px-3 py-2">Sorry Not Found</p>` ;
+    console.log(x.meals[0].strTags)
     if(x.meals[0].strTags != null){
-        Tags = `<p class ="text-white rounded rounded-2 bg-warning-subtle px-3 py-2">${x.meals[0].strTags}</p>` ; ;
+        Tags = `<p class ="text-white rounded rounded-2 bg-warning-subtle px-3 py-2">${x.meals[0].strTags}</p>` ; 
         let tex = x.meals[0].strTags ;
         let coun = 0 ;
         for (let i = 0 ; i < tex.length ; i++){
@@ -111,7 +112,7 @@ function showDea(x){
                 Tags+= `<p class ="text-white rounded rounded-2 bg-warning-subtle me-3 px-3 py-2">${tex.slice(0,i)}</p>` ;
                 tex = tex.slice(i+1,tex.length)
                 i = 0 ;
-                console.log(tex) ;
+                // console.log(tex) ;
                 
             }
 
@@ -119,7 +120,9 @@ function showDea(x){
         if(coun > 0){
             Tags+= `<p class ="text-white rounded rounded-2 bg-warning-subtle px-3 py-2">${tex}</p>` ;
         }
+        
     }
+ 
 
     let source = "#"
     if(x.meals[0].strSource != null){
@@ -134,7 +137,7 @@ function showDea(x){
         container =`
         
         <div class=" col-sm-12    col-xxl-4 d-flex flex-column justify-content-start align-items-start ">
-        <img src=${x.meals[0].strMealThumb} class=" rounded rounded-2 d-block " alt="" width="100%">
+        <img src=${x.meals[0].strMealThumb} class=" rounded rounded-2 d-block " alt="${x.meals[0].strMeal}" width="100%">
             <p class ="text-white fs-4 fw-bold">${x.meals[0].strMeal}</p>
           </div>
 
@@ -180,8 +183,8 @@ function showDea(x){
     });
     $("#here").on("click" , function () {
 
-        console.log( $("#menu").innerWidth())
-        console.log( $("#menu").css("left"))
+        // console.log( $("#menu").innerWidth())
+        // console.log( $("#menu").css("left"))
         if( $("#menu").css("left")== "0px"){
             $("#menu").animate({left:`-${$("#menu").innerWidth()}`} , 1000) ;
             $(".nav").animate({left:`-${$("#menu").innerWidth() -270} `} , 1000) ;

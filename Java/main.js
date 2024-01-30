@@ -36,7 +36,7 @@ for(let i = 0 ; i < data.length ; i++){
     <div  class="con  d-flex flex-column align-items-center justify-content-center text.center position-absolute pb-4  mx-2 rounded rounded-2 bg-body-tertiary  " style="--bs-bg-opacity: .8;">
      <p class ="text-black fs-2 fw-bold">${x[i].meals[0].strMeal}</p>
     </div>
-    <img src=${x[i].meals[0].strMealThumb} class=" rounded rounded-2 d-block " alt="" width="100%">
+    <img src=${x[i].meals[0].strMealThumb} class=" rounded rounded-2 d-block " alt="${x[i].meals[0].strMeal}" width="100%">
 
       </div>`
 }
@@ -79,7 +79,8 @@ function showDea(x){
         }
       
     }
-    let Tags = "" ;
+    let Tags = `<p class ="text-danger rounded rounded-2 bg-warning-subtle px-3 py-2">Sorry Not Found</p>` ;
+
     if(x.meals[0].strTags != null){
         Tags = `<p class ="text-white rounded rounded-2 bg-warning-subtle px-3 py-2">${x.meals[0].strTags}</p>` ; ;
         let tex = x.meals[0].strTags ;
@@ -116,7 +117,7 @@ function showDea(x){
         container =`
         
         <div class=" col-sm-12    col-xxl-4 d-flex flex-column justify-content-start align-items-start ">
-        <img src=${x.meals[0].strMealThumb} class=" rounded rounded-2 d-block " alt="" width="100%">
+        <img src=${x.meals[0].strMealThumb} class=" rounded rounded-2 d-block " alt="${x.meals[0].strMeal}" width="100%">
             <p class ="text-white fs-4 fw-bold">${x.meals[0].strMeal}</p>
           </div>
 
@@ -167,7 +168,7 @@ function showDea(x){
         console.log( $("#menu").css("left"))
         if( $("#menu").css("left")== "0px"){
             $("#menu").animate({left:`-${$("#menu").innerWidth()}`} , 1000) ;
-            $(".nav").animate({left:`-${$("#menu").innerWidth() -270} `} , 1000) ;
+            $(".nav").animate({left:`-${$("#menu").innerWidth() -275} `} , 1000) ;
             $(".te a").toggle(2000);
             $("#here").removeClass("fa-xmark");
             $("#here").addClass("fa-bars");
@@ -175,7 +176,7 @@ function showDea(x){
         }
         else{
             $("#menu").animate({left:`0px`} , 1000) ;
-            $(".nav").animate({left:`270px`} , 1000) ;
+            $(".nav").animate({left:`275px`} , 1000) ;
             $(".te a").toggle(2000);
             $("#here").removeClass("fa-bars");
             $("#here").addClass("fa-xmark");
