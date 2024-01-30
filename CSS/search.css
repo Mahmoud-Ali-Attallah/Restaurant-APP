@@ -1,0 +1,117 @@
+body{
+  min-height: 100vh !important;
+  background-color: black;
+  overflow: hidden;
+  cursor: pointer !important;
+}
+.nav{
+ 
+  position: fixed ;
+  top: 0px ;
+  bottom: 0px ;
+  left: 0px ;
+  width: 75px ;
+  
+}
+.menu{
+  background-color: black ;
+  position: fixed ;
+  top: 0px ;
+  bottom: 0px ;
+  left: -275px ;
+  width: 275px ;
+}
+
+.con{
+  top: 1000px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+.col-3{
+  height: 300px !important;
+  overflow: hidden !important;
+  
+}
+
+::placeholder {
+    color: white !important;
+    opacity: 0.5 !important; 
+  }
+
+  
+#loading{
+    position: fixed;
+    top: 0% !important;
+    bottom: 0% !important;
+    left: 0% !important;
+    right: 0 !important;
+    background-color: black;
+    color: white;
+    z-index: 5555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.loader {
+    width: 48px;
+    height: 48px;
+    position: relative;
+  }
+  .loader::before , .loader::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    width: 48em;
+    height: 48em;
+    background-image:
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0),
+      radial-gradient(circle 10px, #FFF 100%, transparent 0);
+    background-position: 0em -18em, 0em 18em, 18em 0em, -18em 0em,
+                         13em -13em, -13em -13em, 13em 13em, -13em 13em;
+      background-repeat: no-repeat;
+    font-size: 0.5px;
+    border-radius: 50%;
+    animation: blast 1s ease-in infinite;
+  }
+  .loader::after {
+    font-size: 1px;
+    background: #fff;
+    animation: bounce 1s ease-in infinite;
+  }
+  
+  @keyframes bounce {
+    0% , 100%{ font-size: 0.75px }
+    50% { font-size: 1.5px }
+  }
+  @keyframes blast {
+    0% , 40% {
+      font-size: 0.5px;
+    }
+    70% {
+      opacity: 1;
+      font-size: 4px;
+    }
+     100% {
+       font-size: 6px;
+      opacity: 0;
+    }
+  }
+  .con{
+    transition: 1s top  ;
+
+  }
+
+  .this:hover .con{
+    top: 0 !important;
+  }
